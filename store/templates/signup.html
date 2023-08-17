@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class="container">
+
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-5">
+            
+            <h3 class="alert alert-light ">  Create an Account </h3>
+            <form action="/signup" method="POST"> 
+                {% if error%}
+                <div class="alert alert-success.danger" role="alert">
+                  {{error}}
+                </div>
+                {% endif %}
+                {% csrf_token %}
+
+            <div class="form-group ">
+                <label for="">First Name</label>
+                <input type="text" 
+                name="firstname" id="" value="{{values.first_name}}" class="form-control" placeholder="Hasan" aria-describedby="helpId">
+               
+              </div>
+
+             
+  
+              <div class="form-group ">
+                  <label for="">Last name</label>
+                  <input type="text" 
+                  name="lastname" id="" value="{{values.last_name}}" class="form-control" placeholder="Kalyar" aria-describedby="helpId">
+                 
+                </div>
+
+                <div class="form-group ">
+                    <label for="">Phone Number</label>
+                    <input type="text" 
+                    name="phonenumber" id="" value="{{values.phone_number}}" class="form-control" placeholder="0303*******" aria-describedby="helpId">
+                   
+                  </div>
+
+
+              <div class="form-group ">
+                <label for="">Email</label>
+                <input required type="email" 
+                name="email" id="" value="{{values.email}}" class="form-control" placeholder="example@gmail.com" aria-describedby="helpId">
+               
+              </div>
+              
+              
+              <div class="form-group ">
+                <label for="">password</label>
+                <input type="password" 
+                name="password" id="" class="form-control" placeholder="*********" aria-describedby="helpId">
+               
+              </div>
+
+                <div class="form-group">
+                <input class="btn btn-sm btn-info" type="submit" value="Create Account">
+                </div>
+
+        </form>
+    </div>
+    </div>
+
+
+</div>
+
+{% endblock%}
